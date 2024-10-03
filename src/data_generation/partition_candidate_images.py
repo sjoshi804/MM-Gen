@@ -1,10 +1,10 @@
+from loguru import logger
 from utils import CLIPZeroShotClassifier, is_image_file
 import argparse
 import json
 import json
 import os
 import torch
-from loguru import logger
 
 class ImagePartitioner:
     def __init__(self, candidate_image_folder, task_desc, model_name, gpu, batch_size):
