@@ -312,7 +312,7 @@ class MultimodalDataGenerator:
         self.num_prompts = args.num_prompts
         self.logger = logger
         self.min_gen_per_candidate = self.prompt_file["min_gen_per_candidate"]
-
+        self.input_folder = args.input_folder
         self.mode = GenerationMode(self.prompt_file["mode"])
         self.logger.info(f"Generation Mode: {self.mode}")
         
@@ -380,13 +380,13 @@ class MultimodalDataGenerator:
                 icl_indices = prompt_object["icl_indices"]
 
                 # Extract candidate image path 
-                candidate_image_path = prompt[-1]
+                candidate_image_path = os.path.join(self.input_folder, prompt[-1])
                 self.logger.debug(f"Processing candidate image: {candidate_image_path}")
                 
                 # Load all images in prompts
                 for i in range(len(prompt)):
                     if is_image_file(prompt[i]):
-                        prompt[i] = Image.open(prompt[i])
+                        prompt[i] = Image.open(os.path.join(self.input_folder, prompt[i]))
                         
                 # Get response from model
                 response = self.model.generate(prompt + [self.generation_prompt])
