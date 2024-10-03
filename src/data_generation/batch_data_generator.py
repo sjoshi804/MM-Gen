@@ -30,8 +30,6 @@ def main(args):
         # Start the command as a new process
         process = subprocess.Popen(command, shell=True)
 
-        # Optionally wait for the process to finish (comment out if you don't need to wait)
-        process.wait()
     
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Multimodal Data Generator")
