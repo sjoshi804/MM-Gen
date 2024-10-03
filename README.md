@@ -53,7 +53,7 @@ Here, given a generated prompts file, generate the accompanying text (q/a) data 
 To automatically split generated prompts to paralleize generation, use the following command. 
 
 ```bash
-    python /home/sjoshi/mm_instruct/src/data_generation/data_generator.py
+    python /home/sjoshi/mm_instruct/src/data_generation/batch_data_generator.py
         --input_folder {input_folder_path} // Path to parent input folder, this is also the parent folder for the image folder from data file
         --output_folder {output_folder_path} // Path to parent output folder
         --prompt_file "{prompt_file}" // Path to prompt file, relative path from input folder
