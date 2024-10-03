@@ -56,9 +56,20 @@ To automatically split generated prompts to paralleize generation, use the follo
     python src/data_generation/batch_data_generator.py
         --input_folder {input_folder_path} // Path to parent input folder, this is also the parent folder for the image folder from data file
         --output_folder {output_folder_path} // Path to parent output folder
-        --prompt_file "{prompt_file}" // Path to prompt file, relative path from input folder
-        --file_prefix "{file_prefix}" // Prefix for generated_data file
+        --prompt_file  {prompt_file}  // Path to prompt file, relative path from input folder
+        --file_prefix  {file_prefix}  // Prefix for generated_data file
         --num_parallel {num_parallel} // Number of parallel generations to run
-        --model_name "{model_name}" // Model name for OpenAI API to use (OPTIONAL)
+        --model_name  {model_name}  // Model name for OpenAI API to use (OPTIONAL)
         {debug_flag}
+```
+
+Example command
+
+```bash
+python src/data_generation/batch_data_generator.py \
+    --input_folder {input_folder_path} \
+    --output_folder {output_folder_path} \
+    --prompt_file generated_prompts/ai2d_test_prompts_20241002_203030.json \
+    --file_prefix  ai2d_test  \
+    --num_parallel 2 \
 ```
