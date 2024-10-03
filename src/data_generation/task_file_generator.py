@@ -10,7 +10,7 @@ import torch
 class TaskFileGenerator():
     def __init__(self, args):
         logger.info("Initializing TaskFileGenerator with arguments: {}", args)
-        self.data_file = args.data_file
+        self.data_file = os.path.join(args.input_folder, args.data_file)
         with open(self.data_file, 'r') as file:
             self.data = json.load(file)
         self.keywords = args.keywords

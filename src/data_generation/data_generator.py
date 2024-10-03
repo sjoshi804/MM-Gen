@@ -647,10 +647,15 @@ def main(args):
         logger.add(sys.stderr, level="INFO")
 
     # Load data from JSON file
+    args.prompt_file = os.path.join(args.input_folder, "generated_prompts", args.prompt_file)
     args.prompt_file = load_json_file(args.prompt_file)
     if args.num_prompts == -1:
         args.num_prompts = len(args.prompt_file["prompts"])
-        
+    
+    # Output directory for generated data
+    args.save_path = os.path.join(args.output_folder, "generated_data", args.save_path)
+    os.makedirs(args.save_path, exist_ok=True)
+    
     # Initialize generator
     generator = MultimodalDataGenerator(args, logger)
     
@@ -665,8 +670,10 @@ def main(args):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Multimodal Data Generator")
     parser.add_argument("--model_name", type=str, default="gpt-4o-450K", help="Name of model to use with GPT4 endpoint")
+    parser.add_argument('--input_folder', type=str, default="", help='Input Folder (only for AML)')
+    parser.add_argument('--output_folder', type=str, default="", help='Output Folder (only for AML)')
     parser.add_argument("--prompt_file", type=str, required=True, help="Path to the JSON file containing the prompts")
-    parser.add_argument("--save_path", type=str, default="generated_data/", help="Path to save the generated questions and answers")
+    parser.add_argument("--save_path", type=str, default="", help="Path to save the generated questions and answers")
     parser.add_argument("--file_prefix", type=str, required=True, help="Prefix for file with generated questions")
     parser.add_argument("--start_idx", type=int, default=0, help="Index to start at in the list of the prompts.")
     parser.add_argument("--num_prompts", type=int, default=-1, help="Number of prompts to process.")

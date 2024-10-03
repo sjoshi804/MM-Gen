@@ -68,7 +68,7 @@ class PromptGenerator:
         Initialize the Prompt Generator class.
         """
         self.min_gen_per_candidate = args.min_gen_per_candidate
-        self.task_desc_path = args.task_desc
+        self.task_desc_path = os.path.join(args.input_folder, args.task_desc)
         with open(self.task_desc_path, 'r') as file:
             self.task_desc = json.load(file)
         self.total_gen = args.total_gen
@@ -79,7 +79,8 @@ class PromptGenerator:
                     
         # DT string to associate examples with time of run
         self.dt_str = datetime.now().strftime("%Y%m%d_%H%M%S")
-        self.gen_data_path = os.path.join(args.save_path, f"{args.file_prefix}_prompts_{self.dt_str}.json")
+        self.output_file = os.path.join(args.output_folder, args.save_path, f"{args.file_prefix}_prompts_{self.dt_str}.json")
+        os.makedirs(os.path.join(args.output_folder, args.save_path), exist_ok=True)
 
     def number_to_ordinal(self, n):
         ordinals = ["first", "second", "third", "fourth", "fifth", "sixth", "seventh", "eighth", "ninth", "tenth"]
@@ -147,7 +148,7 @@ class PromptGenerator:
                 pbar.update(1)
         pbar.close()
         
-        with open(self.gen_data_path, 'w') as file:
+        with open(self.save_path, 'w') as file:
             prompt_file = {
                 "task_desc_path": self.task_desc_path,
                 "dataset_description": self.task_desc["dataset_description"],
@@ -187,12 +188,14 @@ def main(args):
     
     logger.info("Generating prompts")
     generator.generate_prompts()
-    logger.info(f"Finished. See generated data in {generator.gen_data_path}")
+    logger.info(f"Finished. See generated data in {generator.save_path}")
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Prompt Generator for MultiModal Data Generation")
     parser.add_argument("--task_desc", type=str, required=True, help="Path to the JSON file containing task description")
     parser.add_argument("--save_path", type=str, default="generated_prompts/", help="Path to save the generated questions and answers")
+    parser.add_argument('--input_folder', type=str, default="", help='Input Folder (only for AML)')
+    parser.add_argument('--output_folder', type=str, default="", help='Output Folder (only for AML)')
     parser.add_argument("--file_prefix", type=str, required=True, help="Prefix for file with generated questions")
     parser.add_argument("--total_gen", type=int, help="Total data to generate")
     parser.add_argument("--min_gen_per_candidate", type=int, default=1, help="Number of generated data points per candidate.")
