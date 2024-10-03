@@ -22,7 +22,7 @@ python src/data_generation/task_file_generator.py
 Here, given a task file, generate the prompts to supply to the stronger model. 
 
 ```bash
-    python /home/sjoshi/mm_instruct/src/data_generation/prompt_generator.py //
+    python src/data_generation/prompt_generator.py //
         --task_desc {task_desc} // Path to task file 
         --input_folder {input_folder_path} // Path to parent input folder, this is also the parent folder for the image folder from data file
         --output_folder {output_folder_path} // Path to parent output folder
@@ -39,7 +39,7 @@ Here, given a task file, generate the prompts to supply to the stronger model.
 Here, given a generated prompts file, generate the accompanying text (q/a) data for the candidate images. 
 
 ```bash
-    python /home/sjoshi/mm_instruct/src/data_generation/data_generator.py
+    python src/data_generation/data_generator.py
         --input_folder {input_folder_path} // Path to parent input folder, this is also the parent folder for the image folder from data file
         --output_folder {output_folder_path} // Path to parent output folder
         --prompt_file {prompt_file} // Path to prompt file, relative path from input folder
@@ -53,7 +53,7 @@ Here, given a generated prompts file, generate the accompanying text (q/a) data 
 To automatically split generated prompts to paralleize generation, use the following command. 
 
 ```bash
-    python /home/sjoshi/mm_instruct/src/data_generation/batch_data_generator.py
+    python src/data_generation/batch_data_generator.py
         --input_folder {input_folder_path} // Path to parent input folder, this is also the parent folder for the image folder from data file
         --output_folder {output_folder_path} // Path to parent output folder
         --prompt_file "{prompt_file}" // Path to prompt file, relative path from input folder
