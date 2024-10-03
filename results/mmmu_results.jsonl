@@ -1,0 +1,6 @@
+{"MMMUMetric_result": {"incorrect": 0.636, "correct": 0.359, "none": 0.006}, "name": "base_model"}
+{"MMMUMetric_result": {"incorrect": 0.672, "correct": 0.322, "none": 0.006}, "name": "iid generation (seed=17, size=15k)"}
+{"MMMUMetric_result": {"incorrect": 0.6, "correct": 0.392, "none": 0.008}, "name": "v0"}
+{"MMMUMetric_result": {"incorrect": 0.737, "correct": 0.256, "none": 0.008}, "name": "train directly on skill"}
+{"MMMUMetric_result": {"incorrect": 0.639, "correct": 0.356, "none": 0.006}, "name": "augment images, generate qa"}
+{"MMMUMetric_result": {"incorrect": 0.667, "correct": 0.311, "none": 0.022}, "name": "generate qa"}
