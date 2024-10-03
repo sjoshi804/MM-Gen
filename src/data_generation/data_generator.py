@@ -349,7 +349,8 @@ class MultimodalDataGenerator:
         
         # DT string to associate examples with time of run
         self.dt_str = datetime.now().strftime("%Y%m%d_%H%M%S")
-        self.gen_data_path = os.path.join(args.save_path, f"{args.file_prefix}_{self.dt_str}.json")
+        self.gen_data_path = os.path.join(args.output_dir, SAVE_PATH, f"{args.file_prefix}_{self.dt_str}.json")
+        os.makedirs(self.gen_data_path, exist_ok=True)
 
     def generate_questions(self):
         """
@@ -653,10 +654,6 @@ def main(args):
     args.prompt_file = load_json_file(args.prompt_file)
     if args.num_prompts == -1:
         args.num_prompts = len(args.prompt_file["prompts"])
-    
-    # Output directory for generated data
-    args.save_path = os.path.join(args.output_folder, SAVE_PATH, args.save_path)
-    os.makedirs(args.save_path, exist_ok=True)
     
     # Initialize generator
     generator = MultimodalDataGenerator(args, logger)
