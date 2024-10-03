@@ -16,6 +16,8 @@ class GenerationMode(Enum):
     TQA = "tqa"
     DESCRIPT = "descript"
     GENERIC = "generic"
+    
+SAVE_PATH = "generated_prompts"
 
 class SubsetBatchSampler:
     def __init__(self, samples, batch_size, subset_idx=None, include_indices=False):
@@ -79,8 +81,8 @@ class PromptGenerator:
                     
         # DT string to associate examples with time of run
         self.dt_str = datetime.now().strftime("%Y%m%d_%H%M%S")
-        self.output_file = os.path.join(args.output_folder, args.save_path, f"{args.file_prefix}_prompts_{self.dt_str}.json")
-        os.makedirs(os.path.join(args.output_folder, args.save_path), exist_ok=True)
+        self.output_file = os.path.join(args.output_folder, SAVE_PATH, f"{args.file_prefix}_prompts_{self.dt_str}.json")
+        os.makedirs(os.path.join(args.output_folder, SAVE_PATH), exist_ok=True)
 
     def number_to_ordinal(self, n):
         ordinals = ["first", "second", "third", "fourth", "fifth", "sixth", "seventh", "eighth", "ninth", "tenth"]
@@ -193,7 +195,6 @@ def main(args):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Prompt Generator for MultiModal Data Generation")
     parser.add_argument("--task_desc", type=str, required=True, help="Path to the JSON file containing task description")
-    parser.add_argument("--save_path", type=str, default="generated_prompts/", help="Path to save the generated questions and answers")
     parser.add_argument('--input_folder', type=str, default="", help='Input Folder')
     parser.add_argument('--output_folder', type=str, default="", help='Output Folder')
     parser.add_argument("--file_prefix", type=str, required=True, help="Prefix for file with generated questions")
