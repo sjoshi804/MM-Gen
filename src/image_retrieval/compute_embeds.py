@@ -74,7 +74,7 @@ def process_images(args):
 def main():
     parser = argparse.ArgumentParser(description="Compute and save CLIP embeddings for a folder of images.")
     parser.add_argument('--image_folder', type=str, required=True, help="Path to the folder containing images.")
-    parser.add_argument('--output_folder', type=str, required=True, help="Output folder to save the embeddings.")
+    parser.add_argument('--output_folder', type=str, required=True, help="Output Folderto save the embeddings.")
     parser.add_argument('--batch_size', type=int, default=4096, help="Batch size for computing embeddings and saving them.")
     parser.add_argument('--gpu', type=int, default=0, help="GPU to use for computation.")
     parser.add_argument('--debug', action='store_true', help="Enable debug mode with detailed logging.")

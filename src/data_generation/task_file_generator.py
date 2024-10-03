@@ -57,8 +57,8 @@ class TaskFileGenerator():
 def main():
     parser = argparse.ArgumentParser(description='Generate skills from a data file and keywords.')
     parser.add_argument('--data_file', type=str, help='Path to the data file')
-    parser.add_argument('--input_folder', type=str, default="", help='Input Folder (only for AML)')
-    parser.add_argument('--output_folder', type=str, default="", help='Output Folder (only for AML)')
+    parser.add_argument('--input_folder', type=str, default="", help='Input Folder')
+    parser.add_argument('--output_folder', type=str, default="", help='Output Folder')
     parser.add_argument('--keywords', nargs='+', help='List of keywords')
     parser.add_argument('--output_prefix', type=str, help='Prefix for output file')
     parser.add_argument('--model_name', type=str, help='Path to the CLIP model', default="openai/clip-vit-large-patch14")

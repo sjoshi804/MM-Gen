@@ -38,8 +38,8 @@ def main(args):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Multimodal Data Generator")
     parser.add_argument("--model_name", type=str, default="gpt-4o-450K", help="Name of model to use with GPT4 endpoint")
-    parser.add_argument('--input_folder', type=str, default="", help='Input Folder (only for AML)')
-    parser.add_argument('--output_folder', type=str, default="", help='Output Folder (only for AML)')
+    parser.add_argument('--input_folder', type=str, default="", help='Input Folder')
+    parser.add_argument('--output_folder', type=str, default="", help='Output Folder')
     parser.add_argument("--prompt_file", type=str, required=True, help="Path to the JSON file containing the prompts")
     parser.add_argument("--save_path", type=str, default="", help="Path to save the generated questions and answers")
     parser.add_argument("--file_prefix", type=str, required=True, help="Prefix for file with generated questions")
