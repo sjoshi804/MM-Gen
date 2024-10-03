@@ -3,7 +3,7 @@ from datetime import datetime
 from enum import Enum
 from loguru import logger
 from src.data_generation.gpt4 import GPTEndPoint
-from src.data_generation.utils import is_image_file
+from src.data_generation.minimal_dep_utils import is_image_file
 from tqdm import tqdm 
 import argparse
 import json

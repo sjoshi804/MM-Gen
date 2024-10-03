@@ -1,0 +1,4 @@
+loguru
+tqdm 
+azure-identity
+openai
