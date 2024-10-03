@@ -150,7 +150,7 @@ class PromptGenerator:
                 pbar.update(1)
         pbar.close()
         
-        with open(self.save_path, 'w') as file:
+        with open(SAVE_PATH, 'w') as file:
             prompt_file = {
                 "task_desc_path": self.task_desc_path,
                 "dataset_description": self.task_desc["dataset_description"],
