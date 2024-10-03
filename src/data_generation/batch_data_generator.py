@@ -15,7 +15,7 @@ def main(args):
     
     for start_idx, num_prompts in chunks_start_idx:
         command = (
-            f"python /home/sjoshi/mm_instruct/src/data_generation/data_generator.py "
+            f"python src/data_generation/data_generator.py "
             f"--model_name {args.model_name} "
             f"--input_folder {args.input_folder} "
             f"--output_folder {args.output_folder} "

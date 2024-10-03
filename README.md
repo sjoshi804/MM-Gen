@@ -66,6 +66,7 @@ To automatically split generated prompts to paralleize generation, use the follo
 Example command
 
 ```bash
+export PYTHONPATH=$(pwd):$PYTHONPATH
 python src/data_generation/batch_data_generator.py \
     --input_folder {input_folder_path} \
     --output_folder {output_folder_path} \
