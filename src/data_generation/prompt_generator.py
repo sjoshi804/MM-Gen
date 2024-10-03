@@ -190,7 +190,7 @@ def main(args):
     
     logger.info("Generating prompts")
     generator.generate_prompts()
-    logger.info(f"Finished. See generated data in {generator.save_path}")
+    logger.info(f"Finished. See generated data in {generator.output_file}")
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Prompt Generator for MultiModal Data Generation")
