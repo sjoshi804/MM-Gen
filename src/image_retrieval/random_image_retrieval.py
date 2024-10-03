@@ -1,9 +1,9 @@
+from tqdm import tqdm
+import argparse
+import math
 import os
 import random
 import shutil
-import argparse
-import math
-from tqdm import tqdm
 
 def copy_random_images(src_dir, dest_dir, num_images, num_skills):
     # Create the destination directory and subfolders if they don't exist

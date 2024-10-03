@@ -1,14 +1,11 @@
-from PIL import Image
-from copy import deepcopy
 from datetime import datetime
 from loguru import logger
-
+from utils import CLIPZeroShotClassifier
 import argparse
 import json 
 import os
 import sys
 import torch 
-from utils import CLIPZeroShotClassifier
 
 class TaskFileGenerator():
     def __init__(self, args):
@@ -21,6 +18,7 @@ class TaskFileGenerator():
         self.output_prefix = args.output_prefix
         self.model_name = args.model_name
         self.batch_size = args.batch_size
+        self.input_file_prefix = args.input_path_prefix
         
         self.task_file = self.initialize_task_file()
         self.device = torch.device(f"cuda:{args.gpu}" if torch.cuda.is_available() else "cpu")
@@ -59,6 +57,7 @@ class TaskFileGenerator():
 def main():
     parser = argparse.ArgumentParser(description='Generate skills from a data file and keywords.')
     parser.add_argument('--data_file', type=str, help='Path to the data file')
+    parser.add_argument('--input_path_prefix', type=str, default="", help='Prefix for input paths')
     parser.add_argument('--keywords', nargs='+', help='List of keywords')
     parser.add_argument('--output_prefix', type=str, help='Prefix for output file')
     parser.add_argument('--model_name', type=str, help='Path to the CLIP model', default="openai/clip-vit-large-patch14")

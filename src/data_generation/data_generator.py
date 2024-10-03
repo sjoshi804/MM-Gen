@@ -2,16 +2,16 @@ from PIL import Image
 from datetime import datetime
 from enum import Enum
 from loguru import logger
-from src.data.utils import random_image_augmentation_pipeline, is_image_file
-from src.model.gpt4 import GPTEndPoint
+from src.data_generation.gpt4 import GPTEndPoint
+from src.data_generation.utils import is_image_file
 from tqdm import tqdm 
 import argparse
 import json
 import os
 import random
 import re
-import sys
 import signal
+import sys
 
 class GenerationMode(Enum):
     VQA = "vqa"
