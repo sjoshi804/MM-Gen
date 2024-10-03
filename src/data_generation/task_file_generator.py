@@ -18,13 +18,13 @@ class TaskFileGenerator():
         self.output_prefix = args.output_prefix
         self.model_name = args.model_name
         self.batch_size = args.batch_size
-        self.input_file_prefix = args.input_path_prefix
+        self.input_folder = args.input_folder
         
         self.task_file = self.initialize_task_file()
         self.device = torch.device(f"cuda:{args.gpu}" if torch.cuda.is_available() else "cpu")
         self.zeroshot_classifier = CLIPZeroShotClassifier(self.model_name, self.batch_size, args.gpu, logger)
         self.DT_STR = datetime.now().strftime("%Y_%m_%d_%H:%M:%S")
-        self.output_path = f"{self.output_prefix}_{self.DT_STR}.json"
+        self.output_path = os.path.join(args.output_folder, f"{self.output_prefix}_{self.DT_STR}.json")
         logger.info("TaskFileGenerator initialized successfully.")
     
     def initialize_task_file(self):
@@ -41,7 +41,7 @@ class TaskFileGenerator():
         logger.info("Generating task file.")
         image_keyword_partition = self.zeroshot_classifier.classify(
             self.keywords, 
-            [os.path.join(self.data["image_folder"], sample["image_1"]) for sample in self.data["samples"]]
+            [os.path.join(self.input_folder, self.data["image_folder"], sample["image_1"]) for sample in self.data["samples"]]
         )
         for keyword, image_indices in image_keyword_partition.items():
             subgroup = {
@@ -57,7 +57,8 @@ class TaskFileGenerator():
 def main():
     parser = argparse.ArgumentParser(description='Generate skills from a data file and keywords.')
     parser.add_argument('--data_file', type=str, help='Path to the data file')
-    parser.add_argument('--input_path_prefix', type=str, default="", help='Prefix for input paths')
+    parser.add_argument('--input_folder', type=str, default="", help='Input Folder (only for AML)')
+    parser.add_argument('--output_folder', type=str, default="", help='Output Folder (only for AML)')
     parser.add_argument('--keywords', nargs='+', help='List of keywords')
     parser.add_argument('--output_prefix', type=str, help='Prefix for output file')
     parser.add_argument('--model_name', type=str, help='Path to the CLIP model', default="openai/clip-vit-large-patch14")
