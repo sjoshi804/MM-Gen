@@ -74,3 +74,7 @@ python src/data_generation/batch_data_generator.py \
     --file_prefix  ai2d_test  \
     --num_parallel 2 \
 ```
+
+## TODO
+
+- [ ] Mock out gpt4 to check what is being sent to gpt 4

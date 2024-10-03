@@ -28,7 +28,8 @@ def main(args):
         print(command)
 
         # Start the command as a new process
-        process = subprocess.Popen(command, shell=True)
+        if not args.dry_run:
+            process = subprocess.Popen(command, shell=True)
 
     
 if __name__ == "__main__":
@@ -40,6 +41,7 @@ if __name__ == "__main__":
     parser.add_argument("--save_path", type=str, default="", help="Path to save the generated questions and answers")
     parser.add_argument("--file_prefix", type=str, required=True, help="Prefix for file with generated questions")
     parser.add_argument("--num_parallel", type=int, default=1, help="Index to start at in the list of the prompts.")
+    parser.add_argument("--dry_run", action='store_true', help="Dry run the script without executing the commands.")
     parser.add_argument("--debug", action='store_true', help="Enable debug logging")
 
     args = parser.parse_args()
