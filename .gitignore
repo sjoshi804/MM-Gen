@@ -3,4 +3,4 @@ generated_data
 
 # Ignore Python bytecode
 **/*.pyc
-__pycache__/
+**/__pycache__/
