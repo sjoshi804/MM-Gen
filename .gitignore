@@ -2,5 +2,5 @@ generated_prompts
 generated_data
 
 # Ignore Python bytecode
-*.pyc
+**/*.pyc
 __pycache__/
