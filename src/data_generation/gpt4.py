@@ -39,7 +39,7 @@ class GPTEndPoint:
         pim_retry_delay_sec=120,
     ):
         
-        supported_model_names = ['gpt-4o', 'gpt-4o-450K', 'gpt-4-july', 'gpt-4o-australia-east', 'gpt-4o-australia-east-2']
+        supported_model_names = ['gpt-4o', 'gpt-4o-450K', 'gpt-4-july', 'gpt-4o-australia-east', 'gpt-4o-australia-east-2', 'mock']
         assert model_name in supported_model_names, "model_name must be in "+', '.join(supported_model_names)
         self.model_name = model_name
         self.azure_endpoint_url = "https://openai-models-west-us3.openai.azure.com/"
@@ -50,6 +50,12 @@ class GPTEndPoint:
         self.max_retries = max_retries
         self.retry_delay_sec = retry_delay_sec
         self.pim_retry_delay_sec = pim_retry_delay_sec
+        
+        if model_name == "mock":
+            self.logger.debug("Mocking GPT4 API")
+            for attr, value in self.__dict__.items():
+                self.logger.debug(f"{attr} = {value}")
+            return
         token_provider = get_bearer_token_provider(
             AzureCliCredential(), "https://cognitiveservices.azure.com/.default"
         )
@@ -157,6 +163,11 @@ class GPTEndPoint:
         return stdout, stderr, return_code
     
     def generate(self, contents, is_base64:bool=False):
+        if self.model_name == "mock":
+            self.logger.debug("Mock Request")
+            for content in contents:
+                self.logger.debug(content)
+            return "Mock Response"
         msgs = self.create_request(contents, is_base64)
         response = self.get_response(msgs)
         self.logger.debug(f"Generated response: {response}")

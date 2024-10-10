@@ -77,4 +77,4 @@ python src/data_generation/batch_data_generator.py \
 
 ## TODO
 
-- [ ] Mock out gpt4 to check what is being sent to gpt 4
+- [x] Mock out gpt4 to check what is being sent to gpt 4
