@@ -10,4 +10,10 @@ class GenerationMode(Enum):
     DESCRIPT = "descript"
     GENERIC = "generic"
     VQA_TASK_DESC = "vqa_task_desc"
-    DESCIPT_TASK_DESC = "descript_task_desc"
+    DESCRIPT_TASK_DESC = "descript_task_desc"
+    
+def should_include_icl(mode: GenerationMode):
+    if mode in [GenerationMode.VQA, GenerationMode.VQA_NR, GenerationMode.TQA, GenerationMode.DESCRIPT]:
+        return True
+    else:
+        return False

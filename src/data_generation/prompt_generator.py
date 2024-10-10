@@ -9,7 +9,7 @@ import os
 import random
 import re
 import sys
-from src.data_generation.minimal_dep_utils import GenerationMode
+from src.data_generation.minimal_dep_utils import GenerationMode, should_include_icl
     
 SAVE_PATH = "generated_prompts"
 
@@ -124,14 +124,15 @@ class PromptGenerator:
                 # Construct ICL Prompt
                 ref_indices, ref_batch = ref_sampler.get_batch()
                 prompt = []
-                for i, sample in enumerate(ref_batch):
-                    example_num = i + 1
-                    image = os.path.join(self.task_desc["image_folder"], sample["image_1"])
-                    query = sample["conversations"][0]["value"]
-                    answer = sample["conversations"][1]["value"]
-                    query = re.sub("<image.?.?.?>", f"the {self.number_to_ordinal(example_num)} image", query)
-                    query = re.sub("<.*>", "", query)
-                    prompt.extend([f"Example {example_num}", image, f"Q: {query}\n A: {answer}"])
+                if should_include_icl(self.mode):
+                    for i, sample in enumerate(ref_batch):
+                        example_num = i + 1
+                        image = os.path.join(self.task_desc["image_folder"], sample["image_1"])
+                        query = sample["conversations"][0]["value"]
+                        answer = sample["conversations"][1]["value"]
+                        query = re.sub("<image.?.?.?>", f"Refer to the {self.number_to_ordinal(example_num)} image.", query)
+                        query = re.sub("<.*>", "", query)
+                        prompt.extend([f"Example {example_num}", image, f"Q: {query}\n A: {answer}"])
                 
                 if self.mode != GenerationMode.TQA:
                     prompt.append(candidate_image_path)

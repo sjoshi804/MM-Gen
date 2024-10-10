@@ -167,7 +167,7 @@ Output Format:
 DESCRIPTION_GEN_PROMPT = "Generate exactly <NUM> highly detailed descriptions for the following image in valid aforementioned json format. Each description should be unique and contain multiple sentences."
 
 GENERIC_DESCRIPTION_SYS_PROMPT = """
-Your task is to generate high-quality descriptions. Given an example image and its question-answer pair, create descriptions for a new image.
+Your task is to generate high-quality descriptions.
 
 Return only the output as a JSON list of objects, where each object has a key "A" for the description.
 
@@ -178,6 +178,8 @@ Output Format:
   ...
 ]
 """
+
+GENERIC_DESCRIPTION_GEN_PROMPT = "Generate exactly <NUM> highly detailed descriptions for the following image in valid aforementioned JSON format. Each description should be unique and contain multiple sentences."
 
 DESCRIPTION_TASK_DESC_SYS_PROMPT = """
 You are an expert in <DATASET_DESC>. Your task is to generate high-quality data relevant to this skill. Create detailed descriptions using the aforementioned skill for a new image.
@@ -193,8 +195,6 @@ Output Format:
 """
 
 DESCRIPTION_TASK_DESC_GEN_PROMPT = "Generate exactly <NUM> highly detailed descriptions for the following image in valid aforementioned JSON format. Each description should be unique and contain multiple sentences."
-
-GENERIC_DESCRIPTION_GEN_PROMPT = "Generate exactly <NUM> highly detailed descriptions for the following image in valid aforementioned JSON format. Each description should be unique and contain multiple sentences."
 
 LENGTH_CONSTRAINT = "Each description should be approximately <LEN> words long."
 
@@ -428,6 +428,9 @@ class MultimodalDataGenerator:
                 
                 # Load all images in prompts
                 for i in range(len(prompt)):
+                    if self.model_name == "mock":
+                        prompt[i] = os.path.join(self.input_folder, prompt[i])
+                        continue
                     if is_image_file(prompt[i]):
                         prompt[i] = Image.open(os.path.join(self.input_folder, prompt[i]))
                         
@@ -437,9 +440,13 @@ class MultimodalDataGenerator:
                 # Remove all special token tags (these are specific to LLava style models)
                 response = re.sub("<.*>", "", response)
                 
+                if self.model_name == "mock":
+                    self.logger.debug("Mock model: tests complete.")
+                    exit(0)
+                    
                 # Try parse, else retry
                 try:
-                    json_response = self.parse_response(response)
+                        json_response = self.parse_response(response)
                 except:
                     self.logger.error("Failing due to invalid format. Skipping ahead.")
                     continue
@@ -687,7 +694,7 @@ def is_image_file(filename):
 def main(args):
     # Set logging level
     logger.remove()
-    if args.debug:
+    if args.debug or args.model_name == "mock":
         logger.add(sys.stderr, level="DEBUG")
     else:
         logger.add(sys.stderr, level="INFO")

@@ -165,8 +165,8 @@ class GPTEndPoint:
     def generate(self, contents, is_base64:bool=False):
         if self.model_name == "mock":
             self.logger.debug("Mock Request")
-            for content in contents:
-                self.logger.debug(content)
+            for i, content in enumerate(contents):
+                self.logger.debug(f"Content {i}: {content}")
             return "Mock Response"
         msgs = self.create_request(contents, is_base64)
         response = self.get_response(msgs)
