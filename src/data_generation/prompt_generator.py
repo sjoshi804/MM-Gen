@@ -9,14 +9,7 @@ import os
 import random
 import re
 import sys
-from src.data_generation.minimal_dep_utils import is_image_file 
-
-class GenerationMode(Enum):
-    VQA = "vqa"
-    VQA_NR = "vqa_nr"
-    TQA = "tqa"
-    DESCRIPT = "descript"
-    GENERIC = "generic"
+from src.data_generation.minimal_dep_utils import GenerationMode
     
 SAVE_PATH = "generated_prompts"
 

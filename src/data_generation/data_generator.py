@@ -1,9 +1,8 @@
 from PIL import Image
 from datetime import datetime
-from enum import Enum
 from loguru import logger
 from src.data_generation.gpt4 import GPTEndPoint
-from src.data_generation.minimal_dep_utils import is_image_file
+from src.data_generation.minimal_dep_utils import is_image_file, GenerationMode
 from tqdm import tqdm 
 import argparse
 import json
@@ -12,17 +11,8 @@ import random
 import re
 import signal
 import sys
-
-class GenerationMode(Enum):
-    VQA = "vqa"
-    VQA_NR = "vqa_nr"
-    TQA = "tqa"
-    DESCRIPT = "descript"
-    GENERIC = "generic"
     
 VQA_SYS_PROMPT = """You are an expert in <DATASET_DESC>. Your task is to generate high-quality question-answer pairs relevant to this skill similar to the following examples. 
-
-<EXAMPLES>
 
 Step-by-Step Process:
 1. Analyze the Example: Review the provided example question-answer pair to understand the structure, focus, and context.
@@ -91,8 +81,6 @@ Make sure the questions are varied in type and cover different aspects of the im
 
 TQA_SYS_PROMPT = """You are an expert in <DATASET_DESC>. Your task is to generate high-quality question-answer pairs relevant to this skill similar to the following examples. 
 
-<EXAMPLES>
-
 1. **Hypothetical Image Description:** Start by providing a brief and clear description of the hypothetical image that could be related to the skill.
    
 2. **Question Generation:** Based on the image description, generate relevant multiple-choice questions. Each question should be clear, specific, and directly related to the described image. Present the options with corresponding letters (e.g., A: <option_a>, B: <option_b>), placing each option on a new line.
@@ -128,6 +116,40 @@ TQA_GEN_PROMPT = """Generate exactly <NUM> multiple-choice question-answer pairs
 Ensure that the questions are diverse in type and cover different aspects of the hypothetical image to provide a comprehensive and varied set of questions and answers."""
 
 
+VQA_TASK_DESC_SYS_PROMPT = """You are an expert in <DATASET_DESC>. Your task is to generate high-quality question-answer pairs relevant to this skill.
+
+Step-by-Step Process:
+1. Understand the New Image: Infer relevant details, objects, and themes in the new image, considering how they relate to the skill.
+2. Generate Questions: Create questions that reflect the context and content of the new image, ensuring they align with the skill.
+3. If the question is a multiple choice question, make sure to include the options in the question.
+4. Breakdown Reasoning: For each question, provide a detailed step-by-step breakdown of the reasoning process required to determine the correct answer. Highlight the key elements of the image and the logical steps leading to the answer.
+5. Formulate Answers: After providing the reasoning, generate accurate and concise answers to the questions. Ensure that each answer is consistent with the reasoning provided.
+
+Output Format:
+Return the results as a JSON list of objects. Each object should include:
+- "Q": The generated question (include options if it's multiple-choice).
+- "R": The step-by-step reasoning that leads to the answer.
+- "A": The generated answer.
+
+Example Output:
+[
+  {"Q": "Generated question 1", "R": "Step-by-step reasoning for question 1", "A": "Generated answer 1"},
+  {"Q": "Generated question 2", "R": "Step-by-step reasoning for question 2", "A": "Generated answer 2"}
+]
+"""
+
+VQA_TASK_DESC_GEN_PROMPT = """Generate exactly <NUM> question-answer pairs for the following image. Each question-answer pair should adhere to the following guidelines:
+
+1. **Question Format:** Ensure each question is clear, specific, and directly relevant to the image. Present the options with corresponding letters (e.g., A: <option_a>, B: <option_b>), placing each option on a new line.
+   
+2. **Reasoning Breakdown:** For each question, provide a detailed step-by-step breakdown of the reasoning process required to determine the correct answer. Explain the key elements in the image and the logical steps that lead to the answer.
+   
+3. **Answer Format:** After providing the reasoning, generate the correct answer. Ensure that each answer is consistent with the reasoning provided and directly supported by the image.
+
+4. **JSON Format:** Structure each question-answer pair in JSON format as shown in the example. Ensure that all JSON keys ("Q", "R", "A") and values are correctly formatted and consistently applied.
+
+Make sure the questions are varied in type and cover different aspects of the image to ensure a comprehensive and diverse set of questions and answers."""
+
 
 DESCRIPTION_SYS_PROMPT = """
 You are an expert in <DATASET_DESC>. Your task is to generate high-quality data relevant to this skill. Given an example image and its question-answer pair, create descriptions using the aforementioned skill for a new image.
@@ -156,6 +178,21 @@ Output Format:
   ...
 ]
 """
+
+DESCRIPTION_TASK_DESC_SYS_PROMPT = """
+You are an expert in <DATASET_DESC>. Your task is to generate high-quality data relevant to this skill. Create detailed descriptions using the aforementioned skill for a new image.
+
+Return only the output as a JSON list of objects, where each object has a key "A" for the description.
+
+Output Format:
+[
+  {"A": "Generated description 1"},
+  {"A": "Generated description 2"},
+  ...
+]
+"""
+
+DESCRIPTION_TASK_DESC_GEN_PROMPT = "Generate exactly <NUM> highly detailed descriptions for the following image in valid aforementioned JSON format. Each description should be unique and contain multiple sentences."
 
 GENERIC_DESCRIPTION_GEN_PROMPT = "Generate exactly <NUM> highly detailed descriptions for the following image in valid aforementioned JSON format. Each description should be unique and contain multiple sentences."
 
@@ -333,6 +370,12 @@ class MultimodalDataGenerator:
         elif self.mode == GenerationMode.VQA:
             self.generation_prompt = VQA_GEN_PROMPT
             self.sys_prompt = VQA_SYS_PROMPT
+        elif self.mode == GenerationMode.DESCRIPT_TASK_DESC: 
+            self.generation_prompt = DESCRIPTION_TASK_DESC_GEN_PROMPT
+            self.sys_prompt = DESCRIPTION_TASK_DESC_SYS_PROMPT
+        elif self.mode == GenerationMode.VQA_TASK_DESC:
+            self.generation_prompt = VQA_TASK_DESC_GEN_PROMPT
+            self.sys_prompt = VQA_TASK_DESC_SYS_PROMPT
         elif self.mode == GenerationMode.VQA_NR:
             self.generation_prompt = VQA_NR_GEN_PROMPT
             self.sys_prompt = VQA_NR_SYS_PROMPT          
