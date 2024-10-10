@@ -31,7 +31,7 @@ class TaskFileGenerator():
         logger.debug("Initializing task file.")
         task_file = {
             "image_folder": self.data["image_folder"],
-            "dataset_description": self.data["skill"],
+            "dataset_description": self.data["dataset_description"],
             "subgroups": [],
             "samples": self.data["samples"]
         } 
