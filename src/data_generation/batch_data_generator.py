@@ -7,7 +7,7 @@ def main(args):
     prompt_file = os.path.join(args.input_folder, args.prompt_file)
     with open(prompt_file, 'r') as file:
         prompts = json.load(file)
-    total_prompts = len(prompts)
+    total_prompts = len(prompts["prompts"])
     
     chunk_size = total_prompts // args.num_parallel
     chunks_start_idx = [(i, chunk_size) for i in range(0, total_prompts, chunk_size)]
