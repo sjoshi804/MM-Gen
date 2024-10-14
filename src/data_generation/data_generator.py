@@ -356,9 +356,9 @@ class MultimodalDataGenerator:
         # Create agent to fix formats
         if self.mode == GenerationMode.VQA or self.mode == GenerationMode.TQA:
             self.format_fix_agent = GPTEndPoint(self.model_name, self.logger, sys_prompt=QA_FORMAT_FIX_SYS_PROMPT)
-        elif self.mode == GenerationMode.VQA_NR:
+        elif self.mode == GenerationMode.VQA_NR or self.mode == GenerationMode.VQA_TASK_DESC:
             self.format_fix_agent = GPTEndPoint(self.model_name, self.logger, sys_prompt=QA_NR_FORMAT_FIX_SYS_PROMPT)
-        elif self.mode == GenerationMode.DESCRIPT or self.mode == GenerationMode.GENERIC:
+        elif self.mode == GenerationMode.DESCRIPT or self.mode == GenerationMode.GENERIC or self.mode == GenerationMode.DESCRIPT_TASK_DESC:
             self.format_fix_agent = GPTEndPoint(self.model_name, self.logger, sys_prompt=DESCRIPT_FORMAT_FIX_SYS_PROMPT) 
         else:
             raise ValueError()
