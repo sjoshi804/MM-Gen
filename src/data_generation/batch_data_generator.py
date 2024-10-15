@@ -13,7 +13,7 @@ def main(args):
     chunks_start_idx = [(i, chunk_size) for i in range(0, total_prompts, chunk_size)]
     chunks_start_idx[-1] = (chunks_start_idx[-1][0], -1)
     
-    for start_idx, num_prompts in chunks_start_idx:
+    for run_id, (start_idx, num_prompts) in enumerate(chunks_start_idx):
         command = (
             f"python src/data_generation/data_generator.py "
             f"--model_name {args.model_name} "
@@ -25,11 +25,17 @@ def main(args):
             f"--num_prompts {num_prompts} "
             f"{'--debug' if args.debug else ''}"
         )
-        print(command)
-
-        # Start the command as a new process
+        
+        print(f"Running {command}")
+        
+        os.makedirs("logs", exist_ok=True)
+        output_file = os.path.join("logs", f"run_{run_id}_{args.file_prefix}.log")
+        print(f"Logging to file {output_file}")
+        
+        # Start the command as a new process and redirect stdout and stderr to the output file
         if not args.dry_run:
-            process = subprocess.Popen(command, shell=True)
+            with open(output_file, 'w') as f:
+                process = subprocess.Popen(command, shell=True, stdout=f, stderr=subprocess.STDOUT)
 
     
 if __name__ == "__main__":
