@@ -122,31 +122,27 @@ Step-by-Step Process:
 1. Understand the New Image: Infer relevant details, objects, and themes in the new image, considering how they relate to the skill.
 2. Generate Questions: Create questions that reflect the context and content of the new image, ensuring they align with the skill.
 3. If the question is a multiple choice question, make sure to include the options in the question.
-4. Breakdown Reasoning: For each question, provide a detailed step-by-step breakdown of the reasoning process required to determine the correct answer. Highlight the key elements of the image and the logical steps leading to the answer.
-5. Formulate Answers: After providing the reasoning, generate accurate and concise answers to the questions. Ensure that each answer is consistent with the reasoning provided.
+4. Formulate Answers: After providing the question, generate accurate and concise answers to the questions.
 
 Output Format:
 Return the results as a JSON list of objects. Each object should include:
 - "Q": The generated question (include options if it's multiple-choice).
-- "R": The step-by-step reasoning that leads to the answer.
 - "A": The generated answer.
 
 Example Output:
 [
-  {"Q": "Generated question 1", "R": "Step-by-step reasoning for question 1", "A": "Generated answer 1"},
-  {"Q": "Generated question 2", "R": "Step-by-step reasoning for question 2", "A": "Generated answer 2"}
+  {"Q": "Generated question 1", "A": "Generated answer 1"},
+  {"Q": "Generated question 2", "A": "Generated answer 2"}
 ]
 """
 
 VQA_TASK_DESC_GEN_PROMPT = """Generate exactly <NUM> question-answer pairs for the following image. Each question-answer pair should adhere to the following guidelines:
 
 1. **Question Format:** Ensure each question is clear, specific, and directly relevant to the image. Present the options with corresponding letters (e.g., A: <option_a>, B: <option_b>), placing each option on a new line.
-   
-2. **Reasoning Breakdown:** For each question, provide a detailed step-by-step breakdown of the reasoning process required to determine the correct answer. Explain the key elements in the image and the logical steps that lead to the answer.
-   
-3. **Answer Format:** After providing the reasoning, generate the correct answer. Ensure that each answer is consistent with the reasoning provided and directly supported by the image.
 
-4. **JSON Format:** Structure each question-answer pair in JSON format as shown in the example. Ensure that all JSON keys ("Q", "R", "A") and values are correctly formatted and consistently applied.
+2. **Answer Format:** After providing the question, generate the correct answer. Ensure that each answer is directly supported by the image.
+
+3. **JSON Format:** Structure each question-answer pair in JSON format as shown in the example. Ensure that all JSON keys ("Q", "A") and values are correctly formatted and consistently applied.
 
 Make sure the questions are varied in type and cover different aspects of the image to ensure a comprehensive and diverse set of questions and answers."""
 
