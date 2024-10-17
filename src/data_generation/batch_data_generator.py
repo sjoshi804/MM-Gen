@@ -3,6 +3,8 @@ import json
 import os
 import subprocess
 
+MAX_CONCURRENT_JOBS = 12
+
 def main(args):
     prompt_file = os.path.join(args.input_folder, args.prompt_file)
     with open(prompt_file, 'r') as file:
@@ -13,7 +15,15 @@ def main(args):
     chunks_start_idx = [(i, chunk_size) for i in range(0, total_prompts, chunk_size)]
     chunks_start_idx[-1] = (chunks_start_idx[-1][0], -1)
     
+    if args.num_parallel > MAX_CONCURRENT_JOBS:
+        print(f"Number of parallel jobs {args.num_parallel} exceeds the maximum number of concurrent jobs {MAX_CONCURRENT_JOBS}.")
+        print(f"Jobs batched into batches of size {MAX_CONCURRENT_JOBS}.")
+        print(f"Will run batch {args.batch_num} now.")
+    
+    
     for run_id, (start_idx, num_prompts) in enumerate(chunks_start_idx):
+        if int(run_id / MAX_CONCURRENT_JOBS) != args.batch_num:
+            continue
         command = (
             f"python src/data_generation/data_generator.py "
             f"--model_name {args.model_name} "
@@ -47,6 +57,7 @@ if __name__ == "__main__":
     parser.add_argument("--save_path", type=str, default="", help="Path to save the generated questions and answers")
     parser.add_argument("--file_prefix", type=str, required=True, help="Prefix for file with generated questions")
     parser.add_argument("--num_parallel", type=int, default=1, help="Index to start at in the list of the prompts.")
+    parser.add_argument("--batch_num", type=int, default=0, help="Which batch of concurrent runs to start if running > max conccurent jobs")
     parser.add_argument("--dry_run", action='store_true', help="Dry run the script without executing the commands.")
     parser.add_argument("--debug", action='store_true', help="Enable debug logging")
 
