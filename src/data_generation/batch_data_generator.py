@@ -40,11 +40,14 @@ def main(args):
         
         os.makedirs("logs", exist_ok=True)
         output_file = os.path.join("logs", f"run_{run_id}_{args.file_prefix}.log")
+        with open(output_file, 'w') as f:
+            f.write(f"Command: {command}\n")
+            
         print(f"Logging to file {output_file}")
         
         # Start the command as a new process and redirect stdout and stderr to the output file
         if not args.dry_run:
-            with open(output_file, 'w') as f:
+            with open(output_file, 'a') as f:
                 process = subprocess.Popen(command, shell=True, stdout=f, stderr=subprocess.STDOUT)
 
     
