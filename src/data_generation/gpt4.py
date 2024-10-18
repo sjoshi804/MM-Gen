@@ -140,27 +140,12 @@ class GPTEndPoint:
                     raise e
             except AuthenticationError as e:
                 if attempt + 1 < self.max_retries:
-                    self.logger.warning(f"Authentication Error Hit: {e}. Attempt {attempt + 1} of {self.max_retries}. Programmatic PIM")
+                    self.logger.warning(f"Authentication Error Hit: {e}. Attempt {attempt + 1} of {self.max_retries}.")
                     time.sleep(self.pim_retry_delay_sec)
-                    stdout, stderr, status_code = self.pim()
-                    self.logger.warning(f"Status Code: {status_code} \nOutput: {stdout}\n{stderr}")
                     self.logger.warning(f"Retrying in {self.pim_retry_delay_sec} seconds...")
                 else:
                     self.logger.error("Max retries reached. Raising AuthenticationError.")
                     raise e
-                
-    def pim(self):
-        command = ["pimtool", "-c", "/home/t-sijoshi/multimodal-data-gen/gpt4_api_pim.json", "-y"]
-
-        # Run the command
-        result = subprocess.run(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-
-        # Extract the stdout, stderr, and return code
-        stdout = result.stdout.decode('utf-8')
-        stderr = result.stderr.decode('utf-8')
-        return_code = result.returncode
-        
-        return stdout, stderr, return_code
     
     def generate(self, contents, is_base64:bool=False):
         if self.model_name == "mock":
