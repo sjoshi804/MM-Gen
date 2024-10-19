@@ -21,6 +21,8 @@ def main(args):
         print(f"Jobs batched into batches of size {MAX_CONCURRENT_JOBS}.")
         print(f"Will run batch {args.batch_num} now.")
     
+    command_file = os.path.join(args.output_folder, f"commands_{args.file_prefix}.sh")
+    print(f"Writing all commands to {command_file}")
     
     for run_id, (start_idx, num_prompts) in enumerate(chunks_start_idx):
         if int(run_id / MAX_CONCURRENT_JOBS) != args.batch_num:
@@ -51,7 +53,9 @@ def main(args):
         if not args.dry_run:
             with open(output_file, 'a') as f:
                 process = subprocess.Popen(command, shell=True, stdout=f, stderr=subprocess.STDOUT)
-
+        
+        with open(command_file, 'a') as f:
+            f.write(command + "\n")
     
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Multimodal Data Generator")
