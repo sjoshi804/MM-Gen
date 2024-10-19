@@ -24,6 +24,9 @@ def main(args):
     command_file = os.path.join(args.output_folder, f"commands_{args.file_prefix}.sh")
     print(f"Writing all commands to {command_file}")
     
+    command_input_folder = args.input_folder if not args.aml else "$INPUT_FOLDER"
+    command_output_folder = args.output_folder if not args.aml else "$OUTPUT_FOLDER"
+    
     for run_id, (start_idx, num_prompts) in enumerate(chunks_start_idx):
         if int(run_id / MAX_CONCURRENT_JOBS) != args.batch_num:
             continue
@@ -31,8 +34,8 @@ def main(args):
         command = (
             f"python src/data_generation/data_generator.py "
             f"--model_name {args.model_name} "
-            f"--input_folder {args.input_folder} "
-            f"--output_folder {args.output_folder} "
+            f"--input_folder {command_input_folder} "
+            f"--output_folder {command_output_folder} "
             f"--prompt_file {args.prompt_file} "
             f"--file_prefix {args.file_prefix}_{run_id} "
             f"--start_idx {start_idx} "
@@ -68,6 +71,7 @@ if __name__ == "__main__":
     parser.add_argument("--num_parallel", type=int, default=1, help="Index to start at in the list of the prompts.")
     parser.add_argument("--batch_num", type=int, default=0, help="Which batch of concurrent runs to start if running > max conccurent jobs")
     parser.add_argument("--dry_run", action='store_true', help="Dry run the script without executing the commands.")
+    parser.add_argument("--aml", action='store_true', help="Run on aml")
     parser.add_argument("--debug", action='store_true', help="Enable debug logging")
 
     args = parser.parse_args()
