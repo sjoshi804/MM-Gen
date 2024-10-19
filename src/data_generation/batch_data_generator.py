@@ -45,10 +45,14 @@ def main(args):
         
         print(f"Running {command}")
         
-        os.makedirs("logs", exist_ok=True)
-        output_file = os.path.join(args.output_folder, "logs", f"run_{run_id}_{args.file_prefix}.log")
-        with open(output_file, 'w') as f:
-            f.write(f"Command: {command}\n")
+        output_file = None
+        if not args.aml:
+            log_folder = os.path.join(args.output_folder, "logs")
+            os.makedirs(log_folder, exist_ok=True)
+            output_file = os.path.join(log_folder, f"run_{run_id}_{args.file_prefix}.log")
+        
+            with open(output_file, 'w') as f:
+                f.write(f"Command: {command}\n")
             
         print(f"Logging to file {output_file}")
         
