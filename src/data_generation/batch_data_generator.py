@@ -2,6 +2,7 @@ import argparse
 import json 
 import os
 import subprocess
+import time
 
 MAX_CONCURRENT_JOBS = 12
 
@@ -24,6 +25,7 @@ def main(args):
     for run_id, (start_idx, num_prompts) in enumerate(chunks_start_idx):
         if int(run_id / MAX_CONCURRENT_JOBS) != args.batch_num:
             continue
+        time.sleep(1)
         command = (
             f"python src/data_generation/data_generator.py "
             f"--model_name {args.model_name} "
