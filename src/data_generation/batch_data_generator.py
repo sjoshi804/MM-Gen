@@ -32,7 +32,7 @@ def main(args):
             f"--input_folder {args.input_folder} "
             f"--output_folder {args.output_folder} "
             f"--prompt_file {args.prompt_file} "
-            f"--file_prefix {args.file_prefix} "
+            f"--file_prefix {args.file_prefix}_{run_id} "
             f"--start_idx {start_idx} "
             f"--num_prompts {num_prompts} "
             f"{'--debug' if args.debug else ''}"
