@@ -351,11 +351,11 @@ class MultimodalDataGenerator:
         
         # Create agent to fix formats
         if self.mode == GenerationMode.VQA or self.mode == GenerationMode.TQA:
-            self.format_fix_agent = GPTEndPoint(self.model_name, self.logger, sys_prompt=QA_FORMAT_FIX_SYS_PROMPT)
+            self.format_fix_agent = GPTEndPoint(self.model_name, self.logger, sys_prompt=QA_FORMAT_FIX_SYS_PROMPT, azure_endpoint_url=args.azure_endpoint_url)
         elif self.mode == GenerationMode.VQA_NR or self.mode == GenerationMode.VQA_TASK_DESC:
-            self.format_fix_agent = GPTEndPoint(self.model_name, self.logger, sys_prompt=QA_NR_FORMAT_FIX_SYS_PROMPT)
+            self.format_fix_agent = GPTEndPoint(self.model_name, self.logger, sys_prompt=QA_NR_FORMAT_FIX_SYS_PROMPT, azure_endpoint_url=args.azure_endpoint_url)
         elif self.mode == GenerationMode.DESCRIPT or self.mode == GenerationMode.GENERIC or self.mode == GenerationMode.DESCRIPT_TASK_DESC:
-            self.format_fix_agent = GPTEndPoint(self.model_name, self.logger, sys_prompt=DESCRIPT_FORMAT_FIX_SYS_PROMPT) 
+            self.format_fix_agent = GPTEndPoint(self.model_name, self.logger, sys_prompt=DESCRIPT_FORMAT_FIX_SYS_PROMPT, azure_endpoint_url=args.azure_endpoint_url)
         else:
             raise ValueError()
         
@@ -384,7 +384,7 @@ class MultimodalDataGenerator:
         else:
             raise ValueError(f"Invalid value for mode")
         self.generation_prompt = self.generation_prompt.replace("<NUM>", str(self.min_gen_per_candidate))        
-        self.model = GPTEndPoint(self.model_name, sys_prompt=self.sys_prompt.replace("<DATASET_DESC>", self.prompt_file["dataset_description"]), logger=logger)
+        self.model = GPTEndPoint(self.model_name, sys_prompt=self.sys_prompt.replace("<DATASET_DESC>", self.prompt_file["dataset_description"]), logger=logger, azure_endpoint_url=args.azure_endpoint_url)
         
         # DT string to associate examples with time of run
         self.dt_str = datetime.now().strftime("%Y%m%d_%H%M%S")
@@ -715,6 +715,7 @@ def main(args):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Multimodal Data Generator")
     parser.add_argument("--model_name", type=str, default="gpt-4o-450K", help="Name of model to use with GPT4 endpoint")
+    parser.add_argument("--azure_endpoint_url", type=str, default="", help="Endpoint to use")
     parser.add_argument('--input_folder', type=str, default="", help='Input Folder')
     parser.add_argument('--output_folder', type=str, default="", help='Output Folder')
     parser.add_argument("--prompt_file", type=str, required=True, help="Path to the JSON file containing the prompts")

@@ -40,6 +40,7 @@ def main(args):
             f"--file_prefix {args.file_prefix}_{run_id} "
             f"--start_idx {start_idx} "
             f"--num_prompts {num_prompts} "
+            f"--azure_endpoint_url {args.azure_endpoint_url} "
             f"{'--debug' if args.debug else ''}"
         )
         
@@ -67,6 +68,7 @@ def main(args):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Multimodal Data Generator")
     parser.add_argument("--model_name", type=str, default="gpt-4o-450K", help="Name of model to use with GPT4 endpoint")
+    parser.add_argument("--azure_endpoint_url", type=str, default="", help="Endpoint to use")
     parser.add_argument('--input_folder', type=str, default="", help='Input Folder')
     parser.add_argument('--output_folder', type=str, default="", help='Output Folder')
     parser.add_argument("--prompt_file", type=str, required=True, help="Path to the JSON file containing the prompts")

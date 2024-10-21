@@ -37,14 +37,20 @@ class GPTEndPoint:
         max_retries=5,
         retry_delay_sec=2,
         pim_retry_delay_sec=120,
+        azure_endpoint_url=""
     ):
         
         supported_model_names = ['gpt-4o', 'gpt-4o-450K', 'gpt-4-july', 'gpt-4o-australia-east', 'gpt-4o-australia-east-2', 'mock']
         assert model_name in supported_model_names, "model_name must be in "+', '.join(supported_model_names)
         self.model_name = model_name
-        self.azure_endpoint_url = "https://openai-models-west-us3.openai.azure.com/"
-        if "australia" in self.model_name:
-            self.azure_endpoint_url = "https://openai-models-australia-east.openai.azure.com/"
+        
+        if azure_endpoint_url is "":
+            self.azure_endpoint_url = "https://openai-models-west-us3.openai.azure.com/"
+            if "australia" in self.model_name:
+                self.azure_endpoint_url = "https://openai-models-australia-east.openai.azure.com/"
+        else:
+            self.azure_endpoint_url = azure_endpoint_url
+        
         self.sys_prompt = sys_prompt
         self.logger = logger
         self.max_retries = max_retries
