@@ -10,7 +10,34 @@ python src/data_generation/batch_data_generator.py --input_folder /home/vivineet
 
 # SpatialMap Descript Task Desc Data Generation Command
 export PYTHONPATH=$(pwd):$PYTHONPATH
-python src/data_generation/batch_data_generator.py --input_folder /home/vivineet/projects/siddharth/data --output_folder /home/vivineet/projects/siddharth/data --prompt_file generated_prompts/spatial_map_descript_task_desc_50k_prompts_20241010_120440.json --file_prefix spatial_map_descript_task_desc_50k --num_parallel 12
+python src/data_generation/batch_data_generator.py --input_folder /home/vivineet/projects/siddharth/data --output_folder /home/vivineet/projects/siddharth/data --prompt_file generated_prompts/spatial_map_descript_task_desc_50k_prompts_20241010_120440.json --file_prefix spatial_map_descript_task_desc_50k --num_parallel 120 --batch_num 0
+
+export PYTHONPATH=$(pwd):$PYTHONPATH
+python src/data_generation/batch_data_generator.py --input_folder /home/vivineet/projects/siddharth/data --output_folder /home/vivineet/projects/siddharth/data --prompt_file generated_prompts/spatial_map_descript_task_desc_50k_prompts_20241010_120440.json --file_prefix spatial_map_descript_task_desc_50k --num_parallel 120 --batch_num 1
+
+export PYTHONPATH=$(pwd):$PYTHONPATH
+python src/data_generation/batch_data_generator.py --input_folder /home/vivineet/projects/siddharth/data --output_folder /home/vivineet/projects/siddharth/data --prompt_file generated_prompts/spatial_map_descript_task_desc_50k_prompts_20241010_120440.json --file_prefix spatial_map_descript_task_desc_50k --num_parallel 120 --batch_num 2
+
+export PYTHONPATH=$(pwd):$PYTHONPATH
+python src/data_generation/batch_data_generator.py --input_folder /home/vivineet/projects/siddharth/data --output_folder /home/vivineet/projects/siddharth/data --prompt_file generated_prompts/spatial_map_descript_task_desc_50k_prompts_20241010_120440.json --file_prefix spatial_map_descript_task_desc_50k --num_parallel 120 --batch_num 3
+
+export PYTHONPATH=$(pwd):$PYTHONPATH
+python src/data_generation/batch_data_generator.py --input_folder /home/vivineet/projects/siddharth/data --output_folder /home/vivineet/projects/siddharth/data --prompt_file generated_prompts/spatial_map_descript_task_desc_50k_prompts_20241010_120440.json --file_prefix spatial_map_descript_task_desc_50k --num_parallel 120 --batch_num 4
+
+export PYTHONPATH=$(pwd):$PYTHONPATH
+python src/data_generation/batch_data_generator.py --input_folder /home/vivineet/projects/siddharth/data --output_folder /home/vivineet/projects/siddharth/data --prompt_file generated_prompts/spatial_map_descript_task_desc_50k_prompts_20241010_120440.json --file_prefix spatial_map_descript_task_desc_50k --num_parallel 120 --batch_num 5
+
+export PYTHONPATH=$(pwd):$PYTHONPATH
+python src/data_generation/batch_data_generator.py --input_folder /home/vivineet/projects/siddharth/data --output_folder /home/vivineet/projects/siddharth/data --prompt_file generated_prompts/spatial_map_descript_task_desc_50k_prompts_20241010_120440.json --file_prefix spatial_map_descript_task_desc_50k --num_parallel 120 --batch_num 6
+
+export PYTHONPATH=$(pwd):$PYTHONPATH
+python src/data_generation/batch_data_generator.py --input_folder /home/vivineet/projects/siddharth/data --output_folder /home/vivineet/projects/siddharth/data --prompt_file generated_prompts/spatial_map_descript_task_desc_50k_prompts_20241010_120440.json --file_prefix spatial_map_descript_task_desc_50k --num_parallel 120 --batch_num 7
+
+export PYTHONPATH=$(pwd):$PYTHONPATH
+python src/data_generation/batch_data_generator.py --input_folder /home/vivineet/projects/siddharth/data --output_folder /home/vivineet/projects/siddharth/data --prompt_file generated_prompts/spatial_map_descript_task_desc_50k_prompts_20241010_120440.json --file_prefix spatial_map_descript_task_desc_50k --num_parallel 120 --batch_num 8 
+
+export PYTHONPATH=$(pwd):$PYTHONPATH
+python src/data_generation/batch_data_generator.py --input_folder /home/vivineet/projects/siddharth/data --output_folder /home/vivineet/projects/siddharth/data --prompt_file generated_prompts/spatial_map_descript_task_desc_50k_prompts_20241010_120440.json --file_prefix spatial_map_descript_task_desc_50k --num_parallel 120 --batch_num 9 
 
 #######################
 # AI2D Big Ablations
