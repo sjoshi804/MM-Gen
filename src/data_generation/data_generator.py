@@ -442,7 +442,7 @@ class MultimodalDataGenerator:
                     
                 # Try parse, else retry
                 try:
-                        json_response = self.parse_response(response)
+                    json_response = self.parse_response(response)
                 except:
                     self.logger.error("Failing due to invalid format. Skipping ahead.")
                     continue
@@ -496,7 +496,7 @@ class MultimodalDataGenerator:
                     if self.mode == GenerationMode.VQA:
                         assert "Q" in datum
                         assert "R" in datum
-                    elif self.mode == GenerationMode.VQA_NR:
+                    elif self.mode == GenerationMode.VQA_NR or self.mode == GenerationMode.VQA_TASK_DESC:
                         assert "Q" in datum
                     elif self.mode == GenerationMode.TQA:
                         assert "Q" in datum
