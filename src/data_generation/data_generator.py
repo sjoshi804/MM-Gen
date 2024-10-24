@@ -565,7 +565,7 @@ class MultimodalDataGenerator:
                         "keyword": keyword
                     }
                 )
-            elif self.mode == GenerationMode.VQA_NR:
+            elif self.mode == GenerationMode.VQA_NR or self.mode == GenerationMode.VQA_TASK_DESC:
                 formatted_gen_text.append(
                     {
                         "id": i, 
