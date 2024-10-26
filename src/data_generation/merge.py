@@ -33,8 +33,12 @@ def merge_json_files(folder_path, run_id, output_folder):
     # Save the merged data to a new JSON file
     merged_data["len_samples"] = len(merged_data["samples"])
     output_file = os.path.join(output_folder, f"{run_id}.json")
+    merged_data["image_folder"] = merged_data["image_folder"].replace("/home/vivineet/projects/siddharth/data/","")
+        
     with open(output_file, 'w') as f:
         json.dump(merged_data, f, indent=3)
+        
+    print("CHECK IMAGE FOLDER PATH", merged_data["image_folder"])
 
     print(f"Merged JSON file saved as {output_file}")
 
