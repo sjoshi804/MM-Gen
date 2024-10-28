@@ -396,49 +396,138 @@ python src/data_generation/batch_data_generator.py --input_folder /home/vivineet
 
 # ChartQA 1 Caption per Image Data Generation Command
 export PYTHONPATH=$(pwd):$PYTHONPATH
-python src/data_generation/batch_data_generator.py --input_folder /home/vivineet/projects/siddharth/data --output_folder /home/vivineet/projects/siddharth/data --prompt_file generated_prompts/chartqa_mminstruct_1cap_30k_prompts_20241010_123920.json --file_prefix chartqa_mminstruct_1cap_30k --num_parallel 60 --batch_num 0
+python src/data_generation/batch_data_generator.py --input_folder /home/vivineet/projects/siddharth/data --output_folder /home/vivineet/projects/siddharth/data --prompt_file generated_prompts/chartqa_mminstruct_1cap_30k_prompts_20241010_123920.json --file_prefix chartqa_mminstruct_1cap_30k --num_parallel 180 --batch_num 0
 
 export PYTHONPATH=$(pwd):$PYTHONPATH
-python src/data_generation/batch_data_generator.py --input_folder /home/vivineet/projects/siddharth/data --output_folder /home/vivineet/projects/siddharth/data --prompt_file generated_prompts/chartqa_mminstruct_1cap_30k_prompts_20241010_123920.json --file_prefix chartqa_mminstruct_1cap_30k --num_parallel 60 --batch_num 1
+python src/data_generation/batch_data_generator.py --input_folder /home/vivineet/projects/siddharth/data --output_folder /home/vivineet/projects/siddharth/data --prompt_file generated_prompts/chartqa_mminstruct_1cap_30k_prompts_20241010_123920.json --file_prefix chartqa_mminstruct_1cap_30k --num_parallel 180 --batch_num 1
 
 export PYTHONPATH=$(pwd):$PYTHONPATH
-python src/data_generation/batch_data_generator.py --input_folder /home/vivineet/projects/siddharth/data --output_folder /home/vivineet/projects/siddharth/data --prompt_file generated_prompts/chartqa_mminstruct_1cap_30k_prompts_20241010_123920.json --file_prefix chartqa_mminstruct_1cap_30k --num_parallel 60 --batch_num 2
+python src/data_generation/batch_data_generator.py --input_folder /home/vivineet/projects/siddharth/data --output_folder /home/vivineet/projects/siddharth/data --prompt_file generated_prompts/chartqa_mminstruct_1cap_30k_prompts_20241010_123920.json --file_prefix chartqa_mminstruct_1cap_30k --num_parallel 180 --batch_num 2
 
 export PYTHONPATH=$(pwd):$PYTHONPATH
-python src/data_generation/batch_data_generator.py --input_folder /home/vivineet/projects/siddharth/data --output_folder /home/vivineet/projects/siddharth/data --prompt_file generated_prompts/chartqa_mminstruct_1cap_30k_prompts_20241010_123920.json --file_prefix chartqa_mminstruct_1cap_30k --num_parallel 60 --batch_num 3
+python src/data_generation/batch_data_generator.py --input_folder /home/vivineet/projects/siddharth/data --output_folder /home/vivineet/projects/siddharth/data --prompt_file generated_prompts/chartqa_mminstruct_1cap_30k_prompts_20241010_123920.json --file_prefix chartqa_mminstruct_1cap_30k --num_parallel 180 --batch_num 3
 
 export PYTHONPATH=$(pwd):$PYTHONPATH
-python src/data_generation/batch_data_generator.py --input_folder /home/vivineet/projects/siddharth/data --output_folder /home/vivineet/projects/siddharth/data --prompt_file generated_prompts/chartqa_mminstruct_1cap_30k_prompts_20241010_123920.json --file_prefix chartqa_mminstruct_1cap_30k --num_parallel 60 --batch_num 4
+python src/data_generation/batch_data_generator.py --input_folder /home/vivineet/projects/siddharth/data --output_folder /home/vivineet/projects/siddharth/data --prompt_file generated_prompts/chartqa_mminstruct_1cap_30k_prompts_20241010_123920.json --file_prefix chartqa_mminstruct_1cap_30k --num_parallel 180 --batch_num 4
+
+export PYTHONPATH=$(pwd):$PYTHONPATH
+python src/data_generation/batch_data_generator.py --input_folder /home/vivineet/projects/siddharth/data --output_folder /home/vivineet/projects/siddharth/data --prompt_file generated_prompts/chartqa_mminstruct_1cap_30k_prompts_20241010_123920.json --file_prefix chartqa_mminstruct_1cap_30k --num_parallel 180 --batch_num 5
+
+export PYTHONPATH=$(pwd):$PYTHONPATH
+python src/data_generation/batch_data_generator.py --input_folder /home/vivineet/projects/siddharth/data --output_folder /home/vivineet/projects/siddharth/data --prompt_file generated_prompts/chartqa_mminstruct_1cap_30k_prompts_20241010_123920.json --file_prefix chartqa_mminstruct_1cap_30k --num_parallel 180 --batch_num 6
+
+export PYTHONPATH=$(pwd):$PYTHONPATH
+python src/data_generation/batch_data_generator.py --input_folder /home/vivineet/projects/siddharth/data --output_folder /home/vivineet/projects/siddharth/data --prompt_file generated_prompts/chartqa_mminstruct_1cap_30k_prompts_20241010_123920.json --file_prefix chartqa_mminstruct_1cap_30k --num_parallel 180 --batch_num 7
+
+export PYTHONPATH=$(pwd):$PYTHONPATH
+python src/data_generation/batch_data_generator.py --input_folder /home/vivineet/projects/siddharth/data --output_folder /home/vivineet/projects/siddharth/data --prompt_file generated_prompts/chartqa_mminstruct_1cap_30k_prompts_20241010_123920.json --file_prefix chartqa_mminstruct_1cap_30k --num_parallel 180 --batch_num 8
+
+export PYTHONPATH=$(pwd):$PYTHONPATH
+python src/data_generation/batch_data_generator.py --input_folder /home/vivineet/projects/siddharth/data --output_folder /home/vivineet/projects/siddharth/data --prompt_file generated_prompts/chartqa_mminstruct_1cap_30k_prompts_20241010_123920.json --file_prefix chartqa_mminstruct_1cap_30k --num_parallel 180 --batch_num 9
+
+export PYTHONPATH=$(pwd):$PYTHONPATH
+python src/data_generation/batch_data_generator.py --input_folder /home/vivineet/projects/siddharth/data --output_folder /home/vivineet/projects/siddharth/data --prompt_file generated_prompts/chartqa_mminstruct_1cap_30k_prompts_20241010_123920.json --file_prefix chartqa_mminstruct_1cap_30k --num_parallel 180 --batch_num 10
+
+export PYTHONPATH=$(pwd):$PYTHONPATH
+python src/data_generation/batch_data_generator.py --input_folder /home/vivineet/projects/siddharth/data --output_folder /home/vivineet/projects/siddharth/data --prompt_file generated_prompts/chartqa_mminstruct_1cap_30k_prompts_20241010_123920.json --file_prefix chartqa_mminstruct_1cap_30k --num_parallel 180 --batch_num 11
+
+export PYTHONPATH=$(pwd):$PYTHONPATH
+python src/data_generation/batch_data_generator.py --input_folder /home/vivineet/projects/siddharth/data --output_folder /home/vivineet/projects/siddharth/data --prompt_file generated_prompts/chartqa_mminstruct_1cap_30k_prompts_20241010_123920.json --file_prefix chartqa_mminstruct_1cap_30k --num_parallel 180 --batch_num 12
+
+export PYTHONPATH=$(pwd):$PYTHONPATH
+python src/data_generation/batch_data_generator.py --input_folder /home/vivineet/projects/siddharth/data --output_folder /home/vivineet/projects/siddharth/data --prompt_file generated_prompts/chartqa_mminstruct_1cap_30k_prompts_20241010_123920.json --file_prefix chartqa_mminstruct_1cap_30k --num_parallel 180 --batch_num 13
+
+export PYTHONPATH=$(pwd):$PYTHONPATH
+python src/data_generation/batch_data_generator.py --input_folder /home/vivineet/projects/siddharth/data --output_folder /home/vivineet/projects/siddharth/data --prompt_file generated_prompts/chartqa_mminstruct_1cap_30k_prompts_20241010_123920.json --file_prefix chartqa_mminstruct_1cap_30k --num_parallel 180 --batch_num 14
 
 # ChartQA 3 Captions per Image Data Generation Command
 export PYTHONPATH=$(pwd):$PYTHONPATH
-python src/data_generation/batch_data_generator.py --input_folder /home/vivineet/projects/siddharth/data --output_folder /home/vivineet/projects/siddharth/data --prompt_file generated_prompts/chartqa_mminstruct_3cap_30k_prompts_20241010_123954.json --file_prefix chartqa_mminstruct_3cap_30k --num_parallel 60 --batch_num 0
+python src/data_generation/batch_data_generator.py --input_folder /home/vivineet/projects/siddharth/data --output_folder /home/vivineet/projects/siddharth/data --prompt_file generated_prompts/chartqa_mminstruct_3cap_30k_prompts_20241010_123954.json --file_prefix chartqa_mminstruct_3cap_30k --num_parallel 180 --batch_num 0
 
 export PYTHONPATH=$(pwd):$PYTHONPATH
-python src/data_generation/batch_data_generator.py --input_folder /home/vivineet/projects/siddharth/data --output_folder /home/vivineet/projects/siddharth/data --prompt_file generated_prompts/chartqa_mminstruct_3cap_30k_prompts_20241010_123954.json --file_prefix chartqa_mminstruct_3cap_30k --num_parallel 60 --batch_num 1
+python src/data_generation/batch_data_generator.py --input_folder /home/vivineet/projects/siddharth/data --output_folder /home/vivineet/projects/siddharth/data --prompt_file generated_prompts/chartqa_mminstruct_3cap_30k_prompts_20241010_123954.json --file_prefix chartqa_mminstruct_3cap_30k --num_parallel 180 --batch_num 1
 
 export PYTHONPATH=$(pwd):$PYTHONPATH
-python src/data_generation/batch_data_generator.py --input_folder /home/vivineet/projects/siddharth/data --output_folder /home/vivineet/projects/siddharth/data --prompt_file generated_prompts/chartqa_mminstruct_3cap_30k_prompts_20241010_123954.json --file_prefix chartqa_mminstruct_3cap_30k --num_parallel 60 --batch_num 2
+python src/data_generation/batch_data_generator.py --input_folder /home/vivineet/projects/siddharth/data --output_folder /home/vivineet/projects/siddharth/data --prompt_file generated_prompts/chartqa_mminstruct_3cap_30k_prompts_20241010_123954.json --file_prefix chartqa_mminstruct_3cap_30k --num_parallel 180 --batch_num 2
 
 export PYTHONPATH=$(pwd):$PYTHONPATH
-python src/data_generation/batch_data_generator.py --input_folder /home/vivineet/projects/siddharth/data --output_folder /home/vivineet/projects/siddharth/data --prompt_file generated_prompts/chartqa_mminstruct_3cap_30k_prompts_20241010_123954.json --file_prefix chartqa_mminstruct_3cap_30k --num_parallel 60 --batch_num 3
+python src/data_generation/batch_data_generator.py --input_folder /home/vivineet/projects/siddharth/data --output_folder /home/vivineet/projects/siddharth/data --prompt_file generated_prompts/chartqa_mminstruct_3cap_30k_prompts_20241010_123954.json --file_prefix chartqa_mminstruct_3cap_30k --num_parallel 180 --batch_num 3
 
 export PYTHONPATH=$(pwd):$PYTHONPATH
-python src/data_generation/batch_data_generator.py --input_folder /home/vivineet/projects/siddharth/data --output_folder /home/vivineet/projects/siddharth/data --prompt_file generated_prompts/chartqa_mminstruct_3cap_30k_prompts_20241010_123954.json --file_prefix chartqa_mminstruct_3cap_30k --num_parallel 60 --batch_num 4
+python src/data_generation/batch_data_generator.py --input_folder /home/vivineet/projects/siddharth/data --output_folder /home/vivineet/projects/siddharth/data --prompt_file generated_prompts/chartqa_mminstruct_3cap_30k_prompts_20241010_123954.json --file_prefix chartqa_mminstruct_3cap_30k --num_parallel 180 --batch_num 4
 
+export PYTHONPATH=$(pwd):$PYTHONPATH
+python src/data_generation/batch_data_generator.py --input_folder /home/vivineet/projects/siddharth/data --output_folder /home/vivineet/projects/siddharth/data --prompt_file generated_prompts/chartqa_mminstruct_3cap_30k_prompts_20241010_123954.json --file_prefix chartqa_mminstruct_3cap_30k --num_parallel 180 --batch_num 5
+
+export PYTHONPATH=$(pwd):$PYTHONPATH
+python src/data_generation/batch_data_generator.py --input_folder /home/vivineet/projects/siddharth/data --output_folder /home/vivineet/projects/siddharth/data --prompt_file generated_prompts/chartqa_mminstruct_3cap_30k_prompts_20241010_123954.json --file_prefix chartqa_mminstruct_3cap_30k --num_parallel 180 --batch_num 6
+
+export PYTHONPATH=$(pwd):$PYTHONPATH
+python src/data_generation/batch_data_generator.py --input_folder /home/vivineet/projects/siddharth/data --output_folder /home/vivineet/projects/siddharth/data --prompt_file generated_prompts/chartqa_mminstruct_3cap_30k_prompts_20241010_123954.json --file_prefix chartqa_mminstruct_3cap_30k --num_parallel 180 --batch_num 7
+
+export PYTHONPATH=$(pwd):$PYTHONPATH
+python src/data_generation/batch_data_generator.py --input_folder /home/vivineet/projects/siddharth/data --output_folder /home/vivineet/projects/siddharth/data --prompt_file generated_prompts/chartqa_mminstruct_3cap_30k_prompts_20241010_123954.json --file_prefix chartqa_mminstruct_3cap_30k --num_parallel 180 --batch_num 8
+
+export PYTHONPATH=$(pwd):$PYTHONPATH
+python src/data_generation/batch_data_generator.py --input_folder /home/vivineet/projects/siddharth/data --output_folder /home/vivineet/projects/siddharth/data --prompt_file generated_prompts/chartqa_mminstruct_3cap_30k_prompts_20241010_123954.json --file_prefix chartqa_mminstruct_3cap_30k --num_parallel 180 --batch_num 9
+
+export PYTHONPATH=$(pwd):$PYTHONPATH
+python src/data_generation/batch_data_generator.py --input_folder /home/vivineet/projects/siddharth/data --output_folder /home/vivineet/projects/siddharth/data --prompt_file generated_prompts/chartqa_mminstruct_3cap_30k_prompts_20241010_123954.json --file_prefix chartqa_mminstruct_3cap_30k --num_parallel 180 --batch_num 10
+
+export PYTHONPATH=$(pwd):$PYTHONPATH
+python src/data_generation/batch_data_generator.py --input_folder /home/vivineet/projects/siddharth/data --output_folder /home/vivineet/projects/siddharth/data --prompt_file generated_prompts/chartqa_mminstruct_3cap_30k_prompts_20241010_123954.json --file_prefix chartqa_mminstruct_3cap_30k --num_parallel 180 --batch_num 11
+
+export PYTHONPATH=$(pwd):$PYTHONPATH
+python src/data_generation/batch_data_generator.py --input_folder /home/vivineet/projects/siddharth/data --output_folder /home/vivineet/projects/siddharth/data --prompt_file generated_prompts/chartqa_mminstruct_3cap_30k_prompts_20241010_123954.json --file_prefix chartqa_mminstruct_3cap_30k --num_parallel 180 --batch_num 12
+
+export PYTHONPATH=$(pwd):$PYTHONPATH
+python src/data_generation/batch_data_generator.py --input_folder /home/vivineet/projects/siddharth/data --output_folder /home/vivineet/projects/siddharth/data --prompt_file generated_prompts/chartqa_mminstruct_3cap_30k_prompts_20241010_123954.json --file_prefix chartqa_mminstruct_3cap_30k --num_parallel 180 --batch_num 13
+
+export PYTHONPATH=$(pwd):$PYTHONPATH
+python src/data_generation/batch_data_generator.py --input_folder /home/vivineet/projects/siddharth/data --output_folder /home/vivineet/projects/siddharth/data --prompt_file generated_prompts/chartqa_mminstruct_3cap_30k_prompts_20241010_123954.json --file_prefix chartqa_mminstruct_3cap_30k --num_parallel 180 --batch_num 14
 
 # ChartQA 5 Captions per Image Data Generation Command
 export PYTHONPATH=$(pwd):$PYTHONPATH
-python src/data_generation/batch_data_generator.py --input_folder /home/vivineet/projects/siddharth/data --output_folder /home/vivineet/projects/siddharth/data --prompt_file generated_prompts/chartqa_mminstruct_5cap_30k_prompts_20241010_124001.json --file_prefix chartqa_mminstruct_5cap_30k --num_parallel 60 --batch_num 0
+python src/data_generation/batch_data_generator.py --input_folder /home/vivineet/projects/siddharth/data --output_folder /home/vivineet/projects/siddharth/data --prompt_file generated_prompts/chartqa_mminstruct_5cap_30k_prompts_20241010_124001.json --file_prefix chartqa_mminstruct_5cap_30k --num_parallel 180 --batch_num 0
 
 export PYTHONPATH=$(pwd):$PYTHONPATH
-python src/data_generation/batch_data_generator.py --input_folder /home/vivineet/projects/siddharth/data --output_folder /home/vivineet/projects/siddharth/data --prompt_file generated_prompts/chartqa_mminstruct_5cap_30k_prompts_20241010_124001.json --file_prefix chartqa_mminstruct_5cap_30k --num_parallel 60 --batch_num 1
+python src/data_generation/batch_data_generator.py --input_folder /home/vivineet/projects/siddharth/data --output_folder /home/vivineet/projects/siddharth/data --prompt_file generated_prompts/chartqa_mminstruct_5cap_30k_prompts_20241010_124001.json --file_prefix chartqa_mminstruct_5cap_30k --num_parallel 180 --batch_num 1
 
 export PYTHONPATH=$(pwd):$PYTHONPATH
-python src/data_generation/batch_data_generator.py --input_folder /home/vivineet/projects/siddharth/data --output_folder /home/vivineet/projects/siddharth/data --prompt_file generated_prompts/chartqa_mminstruct_5cap_30k_prompts_20241010_124001.json --file_prefix chartqa_mminstruct_5cap_30k --num_parallel 60 --batch_num 2
+python src/data_generation/batch_data_generator.py --input_folder /home/vivineet/projects/siddharth/data --output_folder /home/vivineet/projects/siddharth/data --prompt_file generated_prompts/chartqa_mminstruct_5cap_30k_prompts_20241010_124001.json --file_prefix chartqa_mminstruct_5cap_30k --num_parallel 180 --batch_num 2
 
 export PYTHONPATH=$(pwd):$PYTHONPATH
-python src/data_generation/batch_data_generator.py --input_folder /home/vivineet/projects/siddharth/data --output_folder /home/vivineet/projects/siddharth/data --prompt_file generated_prompts/chartqa_mminstruct_5cap_30k_prompts_20241010_124001.json --file_prefix chartqa_mminstruct_5cap_30k --num_parallel 60 --batch_num 3
+python src/data_generation/batch_data_generator.py --input_folder /home/vivineet/projects/siddharth/data --output_folder /home/vivineet/projects/siddharth/data --prompt_file generated_prompts/chartqa_mminstruct_5cap_30k_prompts_20241010_124001.json --file_prefix chartqa_mminstruct_5cap_30k --num_parallel 180 --batch_num 3
 
 export PYTHONPATH=$(pwd):$PYTHONPATH
-python src/data_generation/batch_data_generator.py --input_folder /home/vivineet/projects/siddharth/data --output_folder /home/vivineet/projects/siddharth/data --prompt_file generated_prompts/chartqa_mminstruct_5cap_30k_prompts_20241010_124001.json --file_prefix chartqa_mminstruct_5cap_30k --num_parallel 60 --batch_num 4
+python src/data_generation/batch_data_generator.py --input_folder /home/vivineet/projects/siddharth/data --output_folder /home/vivineet/projects/siddharth/data --prompt_file generated_prompts/chartqa_mminstruct_5cap_30k_prompts_20241010_124001.json --file_prefix chartqa_mminstruct_5cap_30k --num_parallel 180 --batch_num 4
+
+export PYTHONPATH=$(pwd):$PYTHONPATH
+python src/data_generation/batch_data_generator.py --input_folder /home/vivineet/projects/siddharth/data --output_folder /home/vivineet/projects/siddharth/data --prompt_file generated_prompts/chartqa_mminstruct_5cap_30k_prompts_20241010_124001.json --file_prefix chartqa_mminstruct_5cap_30k --num_parallel 180 --batch_num 5
+
+export PYTHONPATH=$(pwd):$PYTHONPATH
+python src/data_generation/batch_data_generator.py --input_folder /home/vivineet/projects/siddharth/data --output_folder /home/vivineet/projects/siddharth/data --prompt_file generated_prompts/chartqa_mminstruct_5cap_30k_prompts_20241010_124001.json --file_prefix chartqa_mminstruct_5cap_30k --num_parallel 180 --batch_num 6
+
+export PYTHONPATH=$(pwd):$PYTHONPATH
+python src/data_generation/batch_data_generator.py --input_folder /home/vivineet/projects/siddharth/data --output_folder /home/vivineet/projects/siddharth/data --prompt_file generated_prompts/chartqa_mminstruct_5cap_30k_prompts_20241010_124001.json --file_prefix chartqa_mminstruct_5cap_30k --num_parallel 180 --batch_num 7
+
+export PYTHONPATH=$(pwd):$PYTHONPATH
+python src/data_generation/batch_data_generator.py --input_folder /home/vivineet/projects/siddharth/data --output_folder /home/vivineet/projects/siddharth/data --prompt_file generated_prompts/chartqa_mminstruct_5cap_30k_prompts_20241010_124001.json --file_prefix chartqa_mminstruct_5cap_30k --num_parallel 180 --batch_num 8
+
+export PYTHONPATH=$(pwd):$PYTHONPATH
+python src/data_generation/batch_data_generator.py --input_folder /home/vivineet/projects/siddharth/data --output_folder /home/vivineet/projects/siddharth/data --prompt_file generated_prompts/chartqa_mminstruct_5cap_30k_prompts_20241010_124001.json --file_prefix chartqa_mminstruct_5cap_30k --num_parallel 180 --batch_num 9
+
+export PYTHONPATH=$(pwd):$PYTHONPATH
+python src/data_generation/batch_data_generator.py --input_folder /home/vivineet/projects/siddharth/data --output_folder /home/vivineet/projects/siddharth/data --prompt_file generated_prompts/chartqa_mminstruct_5cap_30k_prompts_20241010_124001.json --file_prefix chartqa_mminstruct_5cap_30k --num_parallel 180 --batch_num 10
+
+export PYTHONPATH=$(pwd):$PYTHONPATH
+python src/data_generation/batch_data_generator.py --input_folder /home/vivineet/projects/siddharth/data --output_folder /home/vivineet/projects/siddharth/data --prompt_file generated_prompts/chartqa_mminstruct_5cap_30k_prompts_20241010_124001.json --file_prefix chartqa_mminstruct_5cap_30k --num_parallel 180 --batch_num 11
+
+export PYTHONPATH=$(pwd):$PYTHONPATH
+python src/data_generation/batch_data_generator.py --input_folder /home/vivineet/projects/siddharth/data --output_folder /home/vivineet/projects/siddharth/data --prompt_file generated_prompts/chartqa_mminstruct_5cap_30k_prompts_20241010_124001.json --file_prefix chartqa_mminstruct_5cap_30k --num_parallel 180 --batch_num 12
+
+export PYTHONPATH=$(pwd):$PYTHONPATH
+python src/data_generation/batch_data_generator.py --input_folder /home/vivineet/projects/siddharth/data --output_folder /home/vivineet/projects/siddharth/data --prompt_file generated_prompts/chartqa_mminstruct_5cap_30k_prompts_20241010_124001.json --file_prefix chartqa_mminstruct_5cap_30k --num_parallel 180 --batch_num 13
+
+export PYTHONPATH=$(pwd):$PYTHONPATH
+python src/data_generation/batch_data_generator.py --input_folder /home/vivineet/projects/siddharth/data --output_folder /home/vivineet/projects/siddharth/data --prompt_file generated_prompts/chartqa_mminstruct_5cap_30k_prompts_20241010_124001.json --file_prefix chartqa_mminstruct_5cap_30k --num_parallel 180 --batch_num 14
