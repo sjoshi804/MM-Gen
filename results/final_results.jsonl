@@ -1,6 +1,6 @@
 {"task": "ChartQA", "name": "Base Model", "accuracy": 0.1824, "sub_tasks": [{"name": "relaxed_augmented_split", "accuracy": 0.2224}, {"name": "relaxed_human_split", "accuracy": 0.1424}]}
 {"task": "ChartQA", "name": "Generic Caption (150K)", "accuracy": 0.2376}
-{"task": "ChartQA", "name": "(TRAIN PENDING) Task-Specific Caption (150K)", "accuracy": 0.0}
+{"task": "ChartQA", "name": "Task-Specific Caption (150K)", "accuracy": 0.2232}
 {"task": "ChartQA", "name": "Task-Specific Question (150K)", "accuracy": 0.088}
 {"task": "ChartQA", "name": "ReQuestion Pre-Filtering (150K)", "accuracy": 0.3288}
 {"task": "ChartQA", "name": "ReQuestion (75K)", "accuracy": 0.3292, "sub_tasks": [{"name": "relaxed_augmented_split", "accuracy": 0.3696}, {"name": "relaxed_human_split", "accuracy": 0.2888}]}

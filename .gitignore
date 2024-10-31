@@ -5,3 +5,4 @@ downloaded_datasets
 # Ignore Python bytecode
 **/*.pyc
 **/__pycache__/
+loss_stats
