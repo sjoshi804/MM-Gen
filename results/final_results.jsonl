@@ -17,5 +17,5 @@
 {"task": "AI2D", "name": "Task-Specific Caption (100k)", "accuracy": 0.593}
 {"task": "AI2D", "name": "Task-Specific Question (100k)", "accuracy": 0.629}
 {"task": "AI2D", "name": "ReQuestion Pre-Filtering (100k)", "accuracy": 0.68329}
-{"task": "AI2D", "name": "(TRAIN PENDING) ReQuestion (50k)", "accuracy": 0.0}
+{"task": "AI2D", "name": "ReQuestion (50k)", "accuracy": 0.688}
 {"task": "AI2D", "name": "Skyline (Provided Training Data)", "accuracy": 0.63601}
