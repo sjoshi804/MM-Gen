@@ -45,7 +45,7 @@ def merge_json_files(folder_path, run_id, output_folder):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Merge JSON files based on run_id")
     parser.add_argument("--folder_path", type=str, help="Path to the folder containing JSON files")
-    parser.add_argument("--output_folder", type=str, help="Path to the folder to save the merged JSON file")
+    parser.add_argument("--output_folder", type=str, default="generated_data", help="Path to the folder to save the merged JSON file")
     parser.add_argument("--run_id", type=str, help="Run ID to filter JSON files")
 
     args = parser.parse_args()
