@@ -2,20 +2,30 @@
 {"task": "ChartQA", "name": "Generic Caption (150K)", "accuracy": 0.2376}
 {"task": "ChartQA", "name": "Task-Specific Caption (150K)", "accuracy": 0.2232}
 {"task": "ChartQA", "name": "Task-Specific Question (150K)", "accuracy": 0.088}
-{"task": "ChartQA", "name": "ReQuestion Pre-Filtering (150K)", "accuracy": 0.3288}
-{"task": "ChartQA", "name": "ReQuestion (75K)", "accuracy": 0.3292, "sub_tasks": [{"name": "relaxed_augmented_split", "accuracy": 0.3696}, {"name": "relaxed_human_split", "accuracy": 0.2888}]}
+{"task": "ChartQA", "name": "MM-Gen Pre-Filtering (150K)", "accuracy": 0.3288}
+{"task": "ChartQA", "name": "MM-Gen (75K)", "accuracy": 0.3292, "sub_tasks": [{"name": "relaxed_augmented_split", "accuracy": 0.3696}, {"name": "relaxed_human_split", "accuracy": 0.2888}]}
 {"task": "ChartQA", "name": "Skyline (Provided Training Data)", "accuracy": 0.4744, "sub_tasks": [{"name": "relaxed_augmented_split", "accuracy": 0.5864}, {"name": "relaxed_human_split", "accuracy": 0.3624}]}
 {"task": "SpatialMap", "name": "Base Model", "accuracy": 0.262}
-{"task": "SpatialMap", "name": "Generic Caption (100k)", "accuracy": 0.033}
-{"task": "SpatialMap", "name": "Task-Specific Caption (100k)", "accuracy": 0.0173}
+{"task": "SpatialMap", "name": "Generic Caption (100K)", "accuracy": 0.033}
+{"task": "SpatialMap", "name": "Task-Specific Caption (100K)", "accuracy": 0.0173}
 {"task": "SpatialMap", "name": "Task-Specific Question (100K)", "accuracy": 0.0893}
-{"task": "SpatialMap", "name": "ReQuestion Pre-Filtering (50k)", "accuracy": 0.63266}
-{"task": "SpatialMap", "name": "(TRAIN PENDING) ReQuestion (75K)", "accuracy": 0.0}
+{"task": "SpatialMap", "name": "MM-Gen Pre-Filtering (50K)", "accuracy": 0.581}
+{"task": "SpatialMap", "name": "MM-Gen (25K)", "accuracy": 0.554}
 {"task": "SpatialMap", "name": "Skyline (Provided Training Data)", "accuracy": 0.978}
 {"task": "AI2D", "name": "Base Model", "accuracy": 0.55214}
-{"task": "AI2D", "name": "Generic Caption (100k)", "accuracy": 0.596}
-{"task": "AI2D", "name": "Task-Specific Caption (100k)", "accuracy": 0.593}
-{"task": "AI2D", "name": "Task-Specific Question (100k)", "accuracy": 0.629}
-{"task": "AI2D", "name": "ReQuestion Pre-Filtering (100k)", "accuracy": 0.68329}
-{"task": "AI2D", "name": "ReQuestion (50k)", "accuracy": 0.688}
+{"task": "AI2D", "name": "Generic Caption (100K)", "accuracy": 0.596}
+{"task": "AI2D", "name": "Task-Specific Caption (100K)", "accuracy": 0.593}
+{"task": "AI2D", "name": "Task-Specific Question (100K)", "accuracy": 0.629}
+{"task": "AI2D", "name": "MM-Gen Pre-Filtering (100K)", "accuracy": 0.68329}
+{"task": "AI2D", "name": "MM-Gen (50K)", "accuracy": 0.688471}
 {"task": "AI2D", "name": "Skyline (Provided Training Data)", "accuracy": 0.63601}
+{"task": "SpatialMap", "name": "Base Model (Llava-1.5-13B)", "accuracy": 0.3886}
+{"task": "SpatialMap", "name": "MM-Gen (25K) (Llava-1.5-13B)", "accuracy": 0.5893}
+{"task": "ChartQA", "name": "Base Model (Llava-1.5-13B)", "accuracy": 0.1792}
+{"task": "ChartQA", "name": "MM-Gen (75K) (Llava-1.5-13B)", "accuracy": 0.3072}
+{"task": "AI2D", "name": "Base Model (Llava-1.5-13B)", "accuracy": 0.5949}
+{"task": "AI2D", "name": "MM-Gen (50K) (Llava-1.5-13B)", "accuracy": 0.7091968911917098}
+{"task": "MMMU", "name": "Base Model", "accuracy": 0.35778}
+{"task": "MMMU", "name": "MM-Gen (AI2D)", "accuracy": 0.37}
+{"task": "MMMU", "name": "MM-Gen (SpatialMap)", "accuracy": 0.3411}
+{"task": "MMMU", "name": "MM-Gen (ChartQA)", "accuracy": 0.3356}
