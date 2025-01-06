@@ -1,4 +1,4 @@
-# MM-Instruct: A Blueprint for Data Generation for Efficiently Fine-tuning VLMs
+# MM-GEN: Enhancing Task Performance Through Targeted Multimodal Data Curation
 
 ## Step 1: Create Task File (from Data File)
 
